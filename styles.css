@@ -1,0 +1,110 @@
+* {
+    padding: 0 0;
+    margin: 0 0;
+}
+
+/*I really don't like scroll bars*/
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+body {
+    padding: 0 0;
+    margin: 0 0;
+    background-color: black;
+}
+
+/*Animations*/
+@keyframes hue-rotate {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+@keyframes intro-fade-popup {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1rem;
+    animation: intro-fade-popup 1s;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.navbar-element-container-container {
+    margin-left: auto;
+}
+.navbar-element-container {
+    display: flex;
+    list-style-type: none;
+}
+
+.navbar-element {
+    padding: 0px 1rem;
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    font-family: special gothic expanded one;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.navbar-element::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    width: fit-content;
+    color: blue;
+    height: 1%;
+    background-color: blue;
+    overflow: hidden;
+}
+
+.navbar-element:hover {
+    color: #fcc724;
+}
+
+.join-button{
+    font-family: special gothic expanded one;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    padding: 5px 5px;
+    cursor: pointer;
+    border: 3px solid white;
+    transition: border 0.2s ease-out, box-shadow 0.4s;
+    user-select: none;
+}
+
+.join-button:hover {
+    filter: blur();
+    box-shadow: 0px 0px 15px #fcc724;
+    border: 3px solid #fcc724;
+    animation: hue-rotate 2s linear infinite;
+}
