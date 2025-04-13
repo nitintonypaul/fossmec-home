@@ -3,9 +3,26 @@
     margin: 0 0;
 }
 
+/*User Select colors (Custom)*/
+::-moz-selection {
+    color: black;
+    background: #fcc724;
+}
+  
+  ::selection {
+    color: black;
+    background: #fcc724;
+}
+
 /*I really don't like scroll bars*/
 ::-webkit-scrollbar { 
     display: none; 
+}
+
+/*Nice cursor*/
+html {
+    cursor: url("assets/cursor-yellow.png"), auto;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -15,15 +32,6 @@ body {
 }
 
 /*Animations*/
-@keyframes hue-rotate {
-    0% {
-        filter: hue-rotate(0deg);
-    }
-    100% {
-        filter: hue-rotate(360deg);
-    }
-}
-
 @keyframes intro-fade-popup {
     0% {
         opacity: 0;
@@ -40,15 +48,51 @@ body {
     }
 }
 
+@keyframes pause-fade {
+    0% {opacity: 0;}
+    75% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes flicker {
+    0% {opacity: 0;}
+    7% {opacity: 1;}
+    13% {opacity: 0;}
+    29% {opacity: 1;}
+    42% {opacity: 0;}
+    55% {opacity: 1;}
+    61% {opacity: 0;}
+    77% {opacity: 1;}
+    84% {opacity: 0;}
+    91% {opacity: 1;}
+    100% {opacity: 1;}
+}
+
+@keyframes fill {
+    0% {color: transparent;}
+    50% {color: transparent;}
+    100% {color: #fcc724;}
+}
+
+/*Styles for Navbar start here*/
 .navbar {
     display: flex;
+    position: fixed;
+    width: 100vw;
     align-items: center;
-    padding: 1rem 1rem;
-    animation: intro-fade-popup 1s;
+    padding: 0rem 0rem;
+    animation: intro-fade-popup 1.5s;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0);
+    /**backdrop-filter: blur(5px);**/
+    z-index: 1;
 }
 
 .logo {
-    cursor: pointer;
+    padding: 1rem 1rem;
+}
+.logo-link:hover {
+    cursor: url("assets/pointer-yellow.png"), pointer;
 }
 
 .navbar-element-container-container {
@@ -67,23 +111,12 @@ body {
     font-family: special gothic expanded one;
     font-weight: 500;
     transition: color 0.2s;
-}
-
-.navbar-element::before {
-    content: "";
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    width: fit-content;
-    color: blue;
-    height: 1%;
-    background-color: blue;
-    overflow: hidden;
+    user-select: none;
 }
 
 .navbar-element:hover {
     color: #fcc724;
+    cursor: url("assets/pointer-yellow.png"), pointer;
 }
 
 .join-button{
@@ -95,16 +128,166 @@ body {
     outline: none;
     border-radius: 0.5rem;
     font-size: 1.1rem;
-    padding: 5px 5px;
-    cursor: pointer;
+    padding: 5px 0.5rem;
+    margin: 0px 1rem;
     border: 3px solid white;
-    transition: border 0.2s ease-out, box-shadow 0.4s;
+    transition: border 0.2s ease-out, box-shadow 0.4s, color 0.2s;
     user-select: none;
 }
 
 .join-button:hover {
     filter: blur();
-    box-shadow: 0px 0px 15px #fcc724;
+    box-shadow: 0px 0px 10px #fcc724;
     border: 3px solid #fcc724;
-    animation: hue-rotate 2s linear infinite;
+    color: #fcc724;
+    cursor: url("assets/pointer-yellow.png"), pointer;
+}
+/*Styles for Navbar end here*/
+
+/*Styles for Introduction section start here*/
+@keyframes move {
+    100% {
+      transform: translate3d(0, 0, 1px) rotate(360deg);
+    }
+  }
+  
+.background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: black;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.ball {
+  position: absolute;
+  width: 20vmin;
+  height: 20vmin;
+  border-radius: 50%;
+  backface-visibility: hidden;
+  animation: move linear infinite;
+}
+
+.ball:nth-child(odd) {
+    color: rgba(252, 198, 36, 0.5);
+}
+
+.ball:nth-child(even) {
+    color: rgb(252, 198, 36, 0.7);
+}
+
+/* Using a custom attribute for variability */
+.ball:nth-child(1) {
+  top: 77%;
+  left: 88%;
+  animation-duration: 40s;
+  animation-delay: -3s;
+  transform-origin: 16vw -2vh;
+  box-shadow: 40vmin 0 5.703076368487546vmin;
+}
+.ball:nth-child(2) {
+  top: 42%;
+  left: 2%;
+  animation-duration: 53s;
+  animation-delay: -29s;
+  transform-origin: -19vw 21vh;
+  box-shadow: -40vmin 0 5.17594621519026vmin;
+}
+.ball:nth-child(3) {
+  top: 28%;
+  left: 18%;
+  animation-duration: 49s;
+  animation-delay: -8s;
+  transform-origin: -22vw 3vh;
+  box-shadow: 40vmin 0 5.248179047256236vmin;
+}
+.ball:nth-child(4) {
+  top: 50%;
+  left: 79%;
+  animation-duration: 26s;
+  animation-delay: -21s;
+  transform-origin: -17vw -6vh;
+  box-shadow: 40vmin 0 5.279749632220298vmin;
+}
+.ball:nth-child(5) {
+  top: 46%;
+  left: 15%;
+  animation-duration: 36s;
+  animation-delay: -40s;
+  transform-origin: 4vw 0vh;
+  box-shadow: -40vmin 0 5.964309466052033vmin;
+}
+.ball:nth-child(6) {
+  top: 77%;
+  left: 16%;
+  animation-duration: 31s;
+  animation-delay: -10s;
+  transform-origin: 18vw 4vh;
+  box-shadow: 40vmin 0 5.178483653434181vmin;
+}
+.ball:nth-child(7) {
+  top: 22%;
+  left: 17%;
+  animation-duration: 55s;
+  animation-delay: -6s;
+  transform-origin: 1vw -23vh;
+  box-shadow: -40vmin 0 5.703026794398318vmin;
+}
+.ball:nth-child(8) {
+  top: 41%;
+  left: 47%;
+  animation-duration: 43s;
+  animation-delay: -28s;
+  transform-origin: 25vw -3vh;
+  box-shadow: 40vmin 0 5.196265905749415vmin;
+}
+
+.intro-section {
+    width: 100vw;
+    height: 100vh;
+}
+
+.intro-text-div {
+    color: white;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 2rem;
+    user-select: none;
+}
+
+#foss {
+    font-family: special gothic expanded one;
+    font-size: 28rem;
+    transition: color 1s;
+    color: #fcc724;
+    animation: fill 1.5s;
+    -webkit-text-stroke: #fcc724;
+    -webkit-text-stroke-width: 1px;
+}
+
+#mec {
+    color: #fff;
+    font-family: rock salt;
+    font-size: 8rem;
+    transform: translateY(-27rem);
+    animation: pause-fade 2s;
+    letter-spacing: 10px;
+}
+
+.paragraph-text {
+    color: white;
+    font-family: special gothic expanded one;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    transform: translateY(-20rem);
+    margin-left: 8rem;
+    margin-right: 8rem;
+    animation: pause-fade 2s;
 }
