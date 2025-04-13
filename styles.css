@@ -254,6 +254,7 @@ body {
     text-align: center;
     margin-top: 2rem;
     user-select: none;
+    overflow-wrap: break-word;
 }
 
 #foss {
@@ -366,3 +367,76 @@ body {
 /*Styles for About section ends here*/
 
 /*Styles for Events section starts here*/
+.events-section {
+    height: 100vh;
+    width: 100vw;
+}
+.events-heading {
+    color: white;
+    font-family: special gothic expanded one;
+    font-weight: 500;
+    font-size: 4rem;
+    padding-top: 5rem;
+    padding-left: 4rem;
+    user-select: none;
+
+    animation: fade linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 40%;
+}
+
+.events-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10rem;
+    margin-bottom: 30rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    animation: fade linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 40%;
+}
+
+.event-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    background-color: rgb(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    transition: border 0.2s, box-shadow 0.2s;
+    user-select: none;
+}
+
+.event-element:hover {
+    border: #fcc724 2px solid;
+    box-shadow: 0px 0px 15px #fcc724;
+    cursor: url("assets/pointer-yellow.png"), pointer;
+}
+
+.event-element:hover .event-title{
+    color: #fcc724;
+}
+
+.event-link {
+    text-decoration: none;
+}
+
+.event-image {
+    width: 16rem;
+    margin: 0 0px;
+}
+
+.event-title {
+    color: white;
+    font-family: special gothic expanded one;
+    margin: 1rem 0px;
+    transition: color 0.2s;
+}
