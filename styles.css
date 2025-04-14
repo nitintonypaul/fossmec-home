@@ -290,23 +290,14 @@ body {
 /*Styles for Introduction section end here*/
 
 /*Styles for About section start here*/
-.about-section {
-    width: 100vw;
-    height: 100vh;
-}
 
-.about-paragraph-container {
-    width: 70vw;
-    padding: 2rem;
-}
-
-.about-heading {
+.heading {
     color: white;
     font-family: special gothic expanded one;
     font-weight: 500;
     font-size: 4rem;
     padding-top: 5rem;
-    padding-left: 2rem;
+    padding-left: 4rem;
     user-select: none;
 
     animation: fade linear;
@@ -314,15 +305,26 @@ body {
     animation-range: entry 0 cover 40%;
 }
 
+.about-section {
+    width: 100vw;
+    height: 100vh;
+
+    animation: fade linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 40%;
+}
+
+.about-paragraph-container {
+    width: 70vw;
+    padding: 2rem;
+}
+
+
 .about-para {
     color: white;
     font-family: special gothic expanded one;
     font-weight: 500;
     padding: 2rem 2rem;
-
-    animation: fade linear;
-    animation-timeline: view();
-    animation-range: entry 0 cover 40%;
 }
 
 .about-link {
@@ -370,15 +372,6 @@ body {
 .events-section {
     height: 100vh;
     width: 100vw;
-}
-.events-heading {
-    color: white;
-    font-family: special gothic expanded one;
-    font-weight: 500;
-    font-size: 4rem;
-    padding-top: 5rem;
-    padding-left: 4rem;
-    user-select: none;
 
     animation: fade linear;
     animation-timeline: view();
@@ -394,10 +387,6 @@ body {
     align-items: center;
     flex-wrap: wrap;
     gap: 30px;
-
-    animation: fade linear;
-    animation-timeline: view();
-    animation-range: entry 0 cover 40%;
 }
 
 .event-element {
@@ -439,4 +428,113 @@ body {
     font-family: special gothic expanded one;
     margin: 1rem 0px;
     transition: color 0.2s;
+}
+/*Event section styles end here*/
+
+/*Gallery Section styles start here*/
+.gallery-section {
+    height: 100vh;
+    width: 100vw;
+
+    animation: fade linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 40%;
+}
+
+.gallery-container {
+    display: flex;
+    width: 100%;
+    padding: 4% 2%;
+    box-sizing: border-box;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+  
+.box {
+  flex: 1;
+  overflow: hidden;
+  transition: .5s;
+  border-radius: 10px;
+}
+
+.gallery-image {
+  width: 250%;
+  height: 100%;
+  object-fit: cover; 
+  transition: .5s;
+  filter: grayscale(100%);
+}
+
+.box:hover { 
+    flex: 1 1 20%; 
+}
+
+.box:hover .gallery-image {
+  width: 100%;
+  filter: none;
+}
+/*Gallery Section styles end here*/
+
+/*Connect Section styles start here*/
+.connect-section {
+    width: 100vw;
+    height: 100vh;
+
+    animation: fade linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 40%;
+}
+
+.connect-container {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    margin-top: 10rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    text-decoration: none;
+}
+
+.social-link:hover {
+    cursor: url("assets/pointer-yellow.png"), pointer;
+}
+
+.social-box {
+    border: 2px solid transparent;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1rem;
+    background-color: rgb(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.social-icon {
+    width: 70px;
+    height: 70px;
+}
+
+.social-title {
+    color: white;
+    font-family: special gothic expanded one;
+    padding: 1rem 0;
+    transition: color 0.2s;
+}
+
+.social-box:hover {
+    border-color: #fcc724;
+}
+
+.social-box:hover > svg{
+    fill: #fcc724;
+}
+
+.social-box:hover .social-title{
+    color: #fcc724;
 }
